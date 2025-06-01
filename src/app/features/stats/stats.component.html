@@ -1,0 +1,35 @@
+<div class="mt-4">
+  <header class="flex justify-between items-center bg-spot-primary-dark w-full p-4 rounded-xl">
+    <div class="flex items-center gap-4">
+      <img class="rounded-full aspect-square w-16 object-cover" src={{photoUrl}} alt="Eduardo Ramón's avatar" />
+      <div>
+        <h1 class="text-spot-surface text-2xl font-light">Eduardo Ramón</h1>
+        <p class="text-spot-surface text-sm font-light">&#64;edu-rz</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <button class="bg-spot-primary text-spot-surface hover:bg-spot-primary-dark rounded-lg px-4 py-2 text-xs">
+        Ir al perfil
+      </button>
+      <button class="bg-spot-primary text-spot-surface hover:bg-spot-primary-dark rounded-lg px-4 py-2 text-xs">
+        Cerrar sesión
+      </button>
+    </div>
+  </header>
+
+  <section class="mt-8">
+    <h2 class="text-spot-primary-dark text-xl font-light">Top Artistas</h2>
+    <div class="bg-spot-primary-dark my-2 ml-0.5 w-12 h-[1px]"></div>
+    <p class="text-spot-primary-dark text-sm">
+      Aquí puedes ver los artistas más escuchados en tu perfil. <br />
+      Puedes hacer clic en cada uno para ver más detalles sobre su música y álbumes.
+    </p>
+    <div class="grid lg:grid-cols-5 sm:grid-cols-3 grid-cols-1 gap-4 mt-4">
+      @for (artist of artists; track artist.id) {
+      <app-dim-card [data]="artist"></app-dim-card>
+      } @empty {
+      <li>There are no items.</li>
+      }
+    </div>
+  </section>
+</div>
